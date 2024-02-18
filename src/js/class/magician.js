@@ -1,9 +1,7 @@
-import Character from './character';
+import MagDaemon from './magdaemon';
 
-export default class Magician extends Character {
+export default class Magician extends MagDaemon {
   constructor (name, type = 'Magician') {
     super(name, type);
-    this.attack = 10;                   
-    this.defence = 40; 
   } 
 }

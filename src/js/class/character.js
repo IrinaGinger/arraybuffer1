@@ -11,7 +11,7 @@ export default class Character {
     this.type = type;                  // тип
     this.health = 100;                 // уровень жизни
     this.level = 1;                    // уровень персонажа
-    this.attack = undefined;           // атака - будет установлена для подкласса
+    this._attack = undefined;           // атака - будет установлена для подкласса
     this.defence = undefined;          // защита - будет установлена для подкласса
   }
 }
