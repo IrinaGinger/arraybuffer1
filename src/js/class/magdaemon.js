@@ -5,6 +5,7 @@ export default class MagDaemon extends Character {
     super(name, type);                  
     this.defence = 40; 
     this._stoned = false; 
+    this._distance = 1;
   } 
 
   get stoned() {
@@ -15,15 +16,23 @@ export default class MagDaemon extends Character {
     this._stoned = value;
   }
 
-  get attack() {
-    return this._attack;
+  get distance() {
+    return this._distance;
   }
 
-  set attack(x) {
-    this._attack = 100 * (1 - (x - 1) * 0.1);
+  set distance(x) {
+    this._distance = x;
+  }
 
-    if (this.stoned) {
-        this._attack = this._attack - Math.log2(x) * 5;
+  get attack() {
+    let k = 0;
+    if (this._stoned) {
+      k = Math.log2(this._distance) * 5;
     }
+    return this._attack * (1 - (this._distance - 1) * 0.1) - k;
+  }
+
+  set attack(base) {
+    this._attack = base;
   }
 }
